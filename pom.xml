@@ -16,6 +16,10 @@
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
         <maven.clean.plugin>3.1.0</maven.clean.plugin>
+        <slf4j.verion>2.0.12</slf4j.verion>
+        <log4j.version>2.20.0</log4j.version>
+        <lombok.version>1.18.30</lombok.version>
+        <typesafe.config.version>1.4.3</typesafe.config.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -26,6 +30,33 @@
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-reload4j</artifactId>
+            <version>${slf4j.verion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>${typesafe.config.version}</version>
         </dependency>
 
     </dependencies>
