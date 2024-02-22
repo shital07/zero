@@ -26,15 +26,18 @@ public class TestEnvFactory {
         log.info("setConfig is called");
         config = ConfigFactory.load();
         TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
+        String testEnvName = testEnv.toString().toLowerCase();
 
 
-        String testEnvDirectory = String.format("src/main/resources/%s", testEnv);
+        String testEnvDirectory = String.format("src/main/resources/%s", testEnvName);
         File testEnvAllFiles = new File(testEnvDirectory);
 
 
         for (File file : testEnvAllFiles.listFiles()) {
 
-            Config childConfig = ConfigFactory.load(String.format("%s/%s", testEnv, file.getName()));
+            String filePath = String.format("%s/%s", testEnvName, file.getName());
+            log.info(filePath);
+            Config childConfig = ConfigFactory.load();
             config = config.withFallback(childConfig);
             log.debug("Merged Config: {}", config.root().render());
         }
