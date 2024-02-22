@@ -27,8 +27,6 @@ public class TestEnvFactory {
         config = ConfigFactory.load();
         TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
         String testEnvName = testEnv.toString().toLowerCase();
-
-
         String testEnvDirectory = String.format("src/main/resources/%s", testEnvName);
         File testEnvAllFiles = new File(testEnvDirectory);
 
@@ -37,7 +35,7 @@ public class TestEnvFactory {
 
             String filePath = String.format("%s/%s", testEnvName, file.getName());
             log.info(filePath);
-            Config childConfig = ConfigFactory.load();
+            Config childConfig = ConfigFactory.load(filePath);
             config = config.withFallback(childConfig);
             log.debug("Merged Config: {}", config.root().render());
         }

@@ -10,10 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestSandbox {
 
-    Config config = TestEnvFactory.getInstance().getConfig();
+
 
     @Test
     void testConfigDevelop() {
+        Config config = TestEnvFactory.getInstance().getConfig();
         log.info("TEST_ENV : " + config.getString("TEST_ENV"));
         log.info("TEST_ENV : " + config.getString("CREATE_EMPLOYEE_ENDPOINT"));
         log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
@@ -24,6 +25,7 @@ public class TestSandbox {
 
     @Test
     void testConfigStaging() {
+        Config config = TestEnvFactory.getInstance().getConfig();
         log.info("TEST_ENV : " + config.getString("TEST_ENV"));
         log.info("TEST_ENV : " + config.getString("CREATE_EMPLOYEE_ENDPOINT"));
         log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
@@ -42,5 +44,4 @@ public class TestSandbox {
 
         assertTrue(true, "true is true");
     }
-
 }
