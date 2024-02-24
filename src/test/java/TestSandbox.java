@@ -17,7 +17,7 @@ public class TestSandbox {
         Config config = TestEnvFactory.getInstance().getConfig();
         log.info("TEST_ENV : " + config.getString("TEST_ENV"));
         log.info("TEST_ENV : " + config.getString("CREATE_EMPLOYEE_ENDPOINT"));
-        log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
+       // log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
         log.info("EMPLOYEE_NAME : " + config.getString("EMPLOYEE_NAME"));
 
 
@@ -28,7 +28,7 @@ public class TestSandbox {
         Config config = TestEnvFactory.getInstance().getConfig();
         log.info("TEST_ENV : " + config.getString("TEST_ENV"));
         log.info("TEST_ENV : " + config.getString("CREATE_EMPLOYEE_ENDPOINT"));
-        log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
+      //  log.info("ADMIN_LOGIN : " + config.getString("ADMIN_PASSWORD"));
         log.info("EMPLOYEE_NAME : " + config.getString("EMPLOYEE_NAME"));
 
 
