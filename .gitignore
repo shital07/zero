@@ -40,4 +40,4 @@ build/
 .DS_Store
 
 ##ignore git-crypt
-git-crypt-key-zero
+git-crypt-key
