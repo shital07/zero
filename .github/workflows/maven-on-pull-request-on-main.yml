@@ -1,13 +1,15 @@
-name: run-test-on-pull-request
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: trigger-tests-on-a-pull-request
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  call-test-on-pull-request:
-  uses: ./.github/workflows/reusable-workflow.yml
-  with:
-    tag-for-test-to-run:"smoke"
-  secrets: inherit
-
+  trigger-tests-on-a-pull-request:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      tag-for-test-to-run: "smoke"
+    secrets: inherit
