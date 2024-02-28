@@ -5,8 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  call-test-on-pull-request: ./.github/workflows/reusable-workflow.yml
-  uses: organization/repo/.github/workflows/build-test-deploy.yml@main
+  call-test-on-pull-request:
+  uses: ./.github/workflows/reusable-workflow.yml
   with:
     tag-for-test-to-run:"smoke"
   secrets: inherit
