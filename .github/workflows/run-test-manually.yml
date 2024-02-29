@@ -18,7 +18,7 @@ on:
           - 'failing'
           - 'flaky, failing'
 
-      tags-of-tests-to-exclude:
+      tag-for-test-to-exclude:
         description: 'Tag of tests to exclude'
         required: false
         default: ''
@@ -45,7 +45,7 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       tag-for-test-to-run: ${{ inputs.tag-for-test-to-run }}
-      tags-of-tests-to-exclude: ${{ inputs.tags-of-tests-to-exclude }}
+      tag-for-test-to-exclude: ${{ inputs.tag-for-test-to-exclude }}
       test-environment: ${{ inputs.test-environment }}
     secrets: inherit
 
