@@ -1,0 +1,13 @@
+name: trigger-tests-on-a-schedule
+
+on:
+  schedule:
+    - cron: '5 2 * * 4'
+
+jobs:
+  trigger-tests-on-scehedule:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      tag-for-test-to-run: ""
+      tag-for-test-to-exclude: "flaky,failing"
+    secrets: inherit

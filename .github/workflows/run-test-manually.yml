@@ -1,0 +1,45 @@
+name: trigger-tests-manually-main
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag-for-test-to-run:
+        description: 'Tag of tests to include'
+        required: false
+        type: choice
+        default: ''
+        options:
+          - 'smoke'
+          - ''
+          - failing
+          - flaky
+          - flaky,failing
+      tag-for-test-to-exclude:
+        description: 'Tag of tests to exclude'
+        required: false
+        type: choice
+        default: ''
+        options:
+          - 'smoke'
+          - ''
+          - failing
+          - flaky
+          - flaky,failing
+      test-environment:
+        description: 'select the environment to run test on'
+        required: false
+        default: 'STAGING'
+        type: choice
+        options:
+          - DEVELOP
+          - STAGING
+          - LOCALHOST
+
+jobs:
+  trigger-tests-manually:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      tag-for-test-to-run: ${{inputs.tag-for-test-to-run}}
+      tag-for-test-to-exclude: ${{inputs.tag-for-test-to-exclude}}
+      test-environment: ${{inputs.test-environment}}
+  secrets: inherit
