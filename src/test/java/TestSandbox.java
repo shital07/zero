@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestSandbox {
 
 
-    @SmokeTest
+    @Test
     void testConfigDevelop() {
         Config config = TestEnvFactory.getInstance().getConfig();
         assertAll("config details", () -> assertEquals("DEVELOP", config.getString("TEST_ENV")), () -> assertEquals("/employee/create", config.getString("CREATE_EMPLOYEE_ENDPOINT")), () -> assertEquals("develop-pass", config.getString("ADMIN_PASSWORD")), () -> assertEquals("develop_name", config.getString("EMPLOYEE_NAME")));
 
     }
 
-    @Test
+    @SmokeTest
     void testConfigStaging() {
         Config config = TestEnvFactory.getInstance().getConfig();
         log.info("TEST_ENV : " + config.getString("TEST_ENV"));
