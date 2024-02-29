@@ -44,7 +44,7 @@ jobs:
   trigger-tests-manually:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
-      tags-of-tests-to-include: ${{ inputs.tag-for-test-to-run }}
+      tag-for-test-to-run: ${{ inputs.tag-for-test-to-run }}
       tags-of-tests-to-exclude: ${{ inputs.tags-of-tests-to-exclude }}
       test-environment: ${{ inputs.test-environment }}
     secrets: inherit
