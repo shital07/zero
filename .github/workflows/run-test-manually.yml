@@ -39,6 +39,7 @@ on:
           - 'DEVELOP'
           - 'STAGING'
 
+
 jobs:
   trigger-tests-manually:
     uses: ./.github/workflows/reusable-workflow.yml
@@ -47,3 +48,4 @@ jobs:
       tags-of-tests-to-exclude: ${{ inputs.tags-of-tests-to-exclude }}
       test-environment: ${{ inputs.test-environment }}
     secrets: inherit
+
