@@ -1,6 +1,8 @@
 import lombok.extern.slf4j.Slf4j;
 import org.annotations.FailingTest;
 import org.annotations.FlakyTest;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -8,8 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Slf4j
 public class TestSandbox2 {
 
-    @FailingTest
+
+    @Tag("employee-service")
+    @Test
     void assertTrueTest() throws InterruptedException {
+        Thread.sleep(2000);
+        assertTrue(true, "true is true");
+    }
+
+    @FailingTest
+    void assertTrueTest2() throws InterruptedException {
         Thread.sleep(2000);
         assertTrue(false, "true is true");
     }
