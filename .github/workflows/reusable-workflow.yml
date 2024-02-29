@@ -16,6 +16,7 @@ on:
         type: string
         default: "STAGING"
 
+
 jobs:
   build:
 
@@ -38,5 +39,6 @@ jobs:
         run: mvn
           -DexcludedGroups="${{ inputs.tag-for-test-to-exclude }}"
           -Dgroups="${{ inputs.tag-for-test-to-run }}"
-          -DTEST_ENV="{{inputs.test-environment}}"
+          -DTEST_ENV="{{ inputs.test-environment }}"
+          
           -B package --file pom.xml
