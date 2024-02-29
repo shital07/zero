@@ -1,4 +1,7 @@
-name: trigger-tests-manually-main
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: trigger-tests-manually
 
 on:
   workflow_dispatch:
@@ -6,40 +9,43 @@ on:
       tag-for-test-to-run:
         description: 'Tag of tests to include'
         required: false
-        type: choice
         default: ''
+        type: choice
         options:
+          - ''  # -Dgroups="" means execute all test cases
           - 'smoke'
-          - ''
-          - failing
-          - flaky
-          - flaky,failing
-      tag-for-test-to-exclude:
+          - 'flaky'
+          - 'failing'
+          - 'flaky, failing'
+
+      tags-of-tests-to-exclude:
         description: 'Tag of tests to exclude'
         required: false
-        type: choice
         default: ''
+        type: choice
         options:
+          - ''  # -DexcludedGroups="" means don't exclude any test case
           - 'smoke'
-          - ''
-          - failing
-          - flaky
-          - flaky,failing
+          - 'flaky'
+          - 'failing'
+          - 'flaky, failing'
+
       test-environment:
-        description: 'select the environment to run test on'
+        description: 'Test environment'
         required: false
         default: 'STAGING'
         type: choice
         options:
-          - DEVELOP
-          - STAGING
-          - LOCALHOST
+          - 'DEVELOP'
+          - 'STAGING'
+
 
 jobs:
   trigger-tests-manually:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
-      tag-for-test-to-run: ${{inputs.tag-for-test-to-run}}
-      tag-for-test-to-exclude: ${{inputs.tag-for-test-to-exclude}}
-      test-environment: ${{inputs.test-environment}}
-  secrets: inherit
+      tags-of-tests-to-include: ${{ inputs.tag-for-test-to-run }}
+      tags-of-tests-to-exclude: ${{ inputs.tags-of-tests-to-exclude }}
+      test-environment: ${{ inputs.test-environment }}
+    secrets: inherit
+
